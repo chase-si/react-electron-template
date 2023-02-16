@@ -1,0 +1,108 @@
+{
+  "name": "template-demo",
+  "author": {
+    "name": "chase wu",
+    "email": "chase_si@163.com"
+  },
+  "homepage": "",
+  "version": "1.0.0",
+  "private": true,
+  "main": "public/electron.js",
+  "dependencies": {
+    "antd": "5.2.1",
+    "axios": "1.3.3",
+    "babel-eslint": "^10.1.0",
+    "electron-is-dev": "^2.0.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.6",
+    "immer": "^9.0.7",
+    "less": "^4.1.1",
+    "lowdb": "^3.0.0",
+    "moment": "^2.29.1",
+    "react": "^18.2.0",
+    "react-app-rewired": "^2.1.8",
+    "react-dom": "^18.2.0",
+    "react-redux": "^7.2.3",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "5.0.1",
+    "react-window": "^1.8.6",
+    "reconnecting-websocket": "^4.4.0",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-jest": "^27.4.2",
+    "concurrently": "^7.6.0",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^1.0.0",
+    "electron": "23.0.0",
+    "electron-builder": "23.6.0",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "jest": "^27.4.3",
+    "less-loader": "6.0",
+    "postinstall-postinstall": "^2.1.0",
+    "react-error-overlay": "6.0.9",
+    "wait-on": "^7.0.1"
+  },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
+  "scripts": {
+    "start": "concurrently \"npm run start-react\" \"wait-on http://127.0.0.1:3001 && npm run start-electron\"",
+    "start-react": "react-app-rewired start",
+    "start-electron": "electron .",
+    "build-react": "react-app-rewired build",
+    "build-electron": "electron-builder --dir",
+    "build-electron:linux": "electron-builder --dir --linux --arm64",
+    "build-electron:windows": "electron-builder --dir --win",
+    "pack-electron": "electron-builder --linux --arm64",
+    "test": "jest",
+    "xxx": "concurrently \"echo 123\" \"echo 456\""
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "build": {
+    "appId": "com.22s.app",
+    "npmRebuild": true,
+    "asar": false,
+    "mac": {
+      "category": "tools"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "icon": "build/256x256.icns"
+    },
+    "files": [
+      "build/**/*",
+      "package.json"
+    ]
+  }
+}
